@@ -1,0 +1,19 @@
+{
+  "name": "rusticroadsbackend",
+  "version": "1.0.0",
+  "description": "Backend for the travel blog : Rustic Roads",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rusticRoads"
+  ],
+  "author": "Shubham Singh",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0"
+  }
+}
