@@ -1,6 +1,6 @@
 // models/User.js
 import mongoose from "mongoose";
-import bcrypt from "bcryptjs";
+import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 const userSchema = new mongoose.Schema(
@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema(
       lowercase: true,
       trim: true,
     },
-    fullName: { type: String, required: true, trim: true },
+    fullname: { type: String, required: true, trim: true },
     password: { type: String, required: [true, "Password is required"] },
     profilePic: { type: String, required: true }, // S3 URL
     watchHistory: { type: mongoose.Schema.Types.ObjectId, ref: "Post" },

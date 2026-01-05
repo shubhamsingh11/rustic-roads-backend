@@ -1,5 +1,5 @@
 import asyncHandler from "../utils/asyncHandler.js";
-import ApiError from "../utils/ApiError.js";
+import { ApiError } from "../utils/ApiError.js";
 import User from "../models/blogs/user.model.js";
 import uploadOnCloudinary from "../utils/cloudinary.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
@@ -14,7 +14,7 @@ const registerUser = asyncHandler(async (req, res) => {
     throw new APiError(400, "All fields are required");
   }
 
-  const existedUser = User.findOne({ $or: [{ username }, { email }] });
+  const existedUser = await User.findOne({ $or: [{ username }, { email }] });
 
   if (existedUser) {
     throw new ApiError(
@@ -23,7 +23,7 @@ const registerUser = asyncHandler(async (req, res) => {
     );
   }
 
-  const profilePicPath = req.files?.profilePic[0]?.path;
+  const profilePicPath = req.file?.path;
 
   if (!profilePicPath) {
     throw new ApiError(400, "Profile picture is required");
